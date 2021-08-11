@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@font-face {
+  font-family: "SchoolBell";
+  src: url("../fonts/Schoolbell-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@tailwind utilities;
