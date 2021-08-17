@@ -7,7 +7,6 @@ module.exports = {
     title: "leahs-little-lessons",
   },
   plugins: [
-    "gatsby-plugin-postcss",
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -16,5 +15,9 @@ module.exports = {
         host: `preview.contentful.com`,
       },
     },
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 };

@@ -5,7 +5,7 @@ const IndividualMonthlyPage = () => {
   return (
     <Layout>
       <div className="mt-32 font-main flex flex-col items-center">
-        <h2 className="font-main text-6xl">January Lesson Plan</h2>
+        <h2 className="font-main text-6xl">January 2021 Lesson Plan</h2>
         <a>Previous Month</a>
         <a>Next Month</a>
 
