@@ -1,23 +1,41 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../pages/components/Layout";
 
 const IndividualMonthlyPage = ({ data, pageContext }) => {
   const lessonPlan = data.allContentfulLessonPlan.nodes[0];
   const allActivities = data.allContentfulActivity.nodes;
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+  const currentMonth = months.indexOf(pageContext.month);
+  const yearForSlug = pageContext.year;
+  const previousPage = months[currentMonth - 1] ? months[currentMonth - 1].toLowerCase() : months[11].toLowerCase();
+  const nextPage = months[currentMonth + 1] ? months[currentMonth + 1].toLowerCase() : months[0].toLowerCase();
+  const isFirst = currentMonth === 0;
+  const isLast = currentMonth === months.length - 1;
+  let previousSlug = `/plans/${previousPage}-${yearForSlug}-lesson-plan`
+  let nextSlug = `/plans/${nextPage}-${yearForSlug}-lesson-plan`
+  if (isFirst) {
+    previousSlug = `/plans/${previousPage}-${yearForSlug - 1}-lesson-plan`;
+  }
+  if (isLast) {
+    nextSlug = `/plans/${nextPage}-${+yearForSlug + 1}-lesson-plan`;
+  }
+  
+
   return (
     <Layout>
       <div className="mt-32 font-main flex flex-col items-center">
         <h2 className="font-main text-6xl">{lessonPlan.month} {lessonPlan.year} Lesson Plan</h2>
-        <a>Previous Month</a>
-        <a>Next Month</a>
+        <Link to={previousSlug}>Previous Month</Link>
+        <Link to={nextSlug}>Next Month</Link>
 
         <table className="table-auto mt-20 border border-black">
           <thead>
             <tr>
               <td className="text-center p-5 underline border border-black">Day of the Week</td>
-              <th className="text-center p-5 border border-black">Tuesday</th>
               <th className="text-center p-5 border border-black">Monday</th>
+              <th className="text-center p-5 border border-black">Tuesday</th>
               <th className="text-center p-5 border border-black">Wednesday</th>
               <th className="text-center p-5 border border-black">Thursday</th>
               <th className="text-center p-5 border border-black">Friday</th>
@@ -79,6 +97,9 @@ export const query = graphql`
     nodes {
       title
       id
+      slug,
+      week,
+      month
     }
   }
   }
@@ -88,9 +109,9 @@ const renderActivites = (week, lessonPlan, allActivities) => {
   return lessonPlan.activities.activities[week].map(activity => {
     if (activity) {
     const matchedActivity = allActivities.find(specificActivity => specificActivity.id === activity);
-    console.log(matchedActivity)
+    const { month, slug, week, id, title } = matchedActivity;
     return (
-      <td className="text-center p-5 border border-black" key={matchedActivity.id}>{matchedActivity.title}</td>
+      <td className="text-center p-5 border border-black" key={id}><Link to={`/activity/${month}/${week}/${slug}`}>{title}</Link></td>
     )
     } 
     else {
