@@ -49,7 +49,40 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/plans/${monthSlug}`,
       component: path.resolve(`src/templates/month-template.js`),
       context: {
-        month: month.month  
+        month: month.month,
+        year: month.year  
+      }
+    })
+  })
+  const activityQuery = await graphql(`
+    query activitiesQuery {
+  allContentfulActivity {
+    edges {
+      node {
+        id
+        month
+        week
+        title
+        tags
+        slug
+        content {
+          raw
+        }
+      }
+    }
+  }
+}
+  `);
+
+  const activities = activityQuery.data.allContentfulActivity.edges
+
+  activities.forEach(activity => {
+    const {slug, month, week, id } = activity.node;
+    createPage({
+      path: `activity/${month}/${week}/${slug}`,
+      component: path.resolve('src/templates/activity-template.js'),
+      context: {
+        id
       }
     })
   })
