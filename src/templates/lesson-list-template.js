@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Layout from "../pages/components/Layout";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -11,8 +11,6 @@ const MonthlyPage = ({ data, pageContext }) => {
   const isLast = currentPage === numPages;
   const prevPage = currentPage - 1 === 1 ? "/plans/2021" : `/plans/${currentPage + 2019}`;
   const nextPage = `/plans/${(currentPage + 2021)}`;
-  console.log(prevPage, '____________________________')
-  console.log(nextPage, '+++++++++++++++++++++++++++++++++++=')
   return (
     <Layout>
       <div className="mt-32 font-main flex flex-col items-center">
