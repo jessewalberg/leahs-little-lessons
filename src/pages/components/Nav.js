@@ -14,13 +14,15 @@ const Nav = () => {
   return (
     <nav className="flex items-center flex-col font-main justify-between mt-2">
       <div className="flex flex-wrap w-full justify-between items-center">
-        <img className="w-1/6" src={justApple} />
+        <Link to={'/'}>
+          <img className="w-3/4" src={justApple} />
+        </Link>
         { navOpen ? <FiX size={"3rem"} onClick={handleMobileNavToggleClick} />: <FiMenu size={"3rem"} onClick={handleMobileNavToggleClick}/> } 
       </div>
-      <img className="my-7" src={justText} />
+      <img className="my-7 lg:w-2/3" src={justText} />
       <ul
         id="mobile-navigation"
-        className={`${navOpen ? 'flex flex-col' : 'hidden'} gap-4 items-center text-3xl cursor-pointer`}
+        className={`${navOpen ? 'flex flex-col' : 'hidden'} gap-4 items-center text-3xl cursor-pointer mb-10`}
       >
         <li className="hover:underline cursor-pointer">
           <Link to={"/activities"}>Activities</Link>

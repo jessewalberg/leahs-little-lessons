@@ -9,13 +9,13 @@ const IndexPage = () => {
   return (
     <>
       <Layout>
-        <div className="flex flex-col items-center font-main mt-32">
-          <h2 className="text-7xl">Little Lessons for your Little Learners</h2>
-          <h4 className="text-3xl text-center mt-4">
+        <div className="flex flex-col items-center font-main my-5">
+          <h2 className="text-4xl text-center">Little Lessons for your Little Learners</h2>
+          <h4 className="text-xl text-center mt-4 font-writing">
             Free Developmentally beneficial activities everyday
           </h4>
         </div>
-        <div className="flex justify-around text-5xl font-main mt-32">
+        <div className="flex flex-col lg:flex-row gap-20 justify-around text-5xl font-main my-20">
           <Link to={"/plans/2021"}>
             <div className="flex flex-col items-center space-y-6">
               <img src={map} />

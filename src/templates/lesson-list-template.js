@@ -13,10 +13,10 @@ const MonthlyPage = ({ data, pageContext }) => {
   const nextPage = `/plans/${(currentPage + 2021)}`;
   return (
     <Layout>
-      <div className="mt-32 font-main flex flex-col items-center">
-        <h2 className="font-main text-6xl">Lesson Plans By Month</h2>
-        <p className="font-writing text-center text-3xl mt-4 w-2/3 ">
-          Lesson plans are a month of activities. Feel free to use these as you
+      <div className="font-main flex flex-col items-center">
+        <h2 className="font-main text-4xl underline">Lesson Plans</h2>
+        <p className="font-writing text-center text-lg mt-4">
+          Lesson plans are a month of activities with a learning theme. Feel free to use these as you
           want or need. Change the order. Do Februaries activities in June
           whatever.
         </p>
@@ -31,7 +31,7 @@ const MonthlyPage = ({ data, pageContext }) => {
           </Link>
         )}
       </div>
-      <div className="grid grid-cols-3 gap-40 mx-10 mt-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
         {months.map((month) => {
           console.log(month)
           const image = getImage(month.node.featuredImage.gatsbyImageData);
@@ -64,7 +64,7 @@ export const query = graphql`
         node {
           slug
           featuredImage {
-            gatsbyImageData(width: 500, height: 300)
+            gatsbyImageData(height: 500 width: 800)
           }
           metadata {
             month

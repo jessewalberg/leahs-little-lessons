@@ -25,12 +25,14 @@ const IndividualMonthlyPage = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <div className="mt-32 font-main flex flex-col items-center">
-        <h2 className="font-main text-6xl">{lessonPlan.month} {lessonPlan.year} Lesson Plan</h2>
-        <Link to={previousSlug}>Previous Month</Link>
-        <Link to={nextSlug}>Next Month</Link>
-
-        <table className="table-auto mt-20 border border-black">
+      <div className="font-main flex flex-col items-center p-0">
+        <h2 className="font-main text-3xl">{lessonPlan.month} {lessonPlan.year} Lesson Plan</h2>
+        <div className="flex gap-5 mt-4">
+        <Link to={previousSlug}>← Previous Month</Link>
+        <Link to={nextSlug}>Next Month →</Link>
+        </div>
+        <div className="h-3/4 w-full overflow-x-scroll p-0">
+        <table className="table-auto my-10 border border-black">
           <thead>
             <tr>
               <td className="text-center p-5 underline border border-black">Day of the Week</td>
@@ -68,6 +70,7 @@ const IndividualMonthlyPage = ({ data, pageContext }) => {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </Layout>
   );

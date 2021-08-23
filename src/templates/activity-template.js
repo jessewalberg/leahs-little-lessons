@@ -11,10 +11,10 @@ const Activity = ({ data, pageContext }) => {
     <span className=" font-writing font-bold">{children}</span>
   );
   const Text = ({ children }) => (
-    <p className="align-center font-writing my-2 text-lg">{children}</p>
+    <p className="align-center font-writing my-2 text-md">{children}</p>
   );
   const H3 = ({ children }) => (
-    <h3 className="text-5xl font-writing my-6">{children}</h3>
+    <h3 className="text-3xl font-writing my-2">{children}</h3>
   );
   const UL = ({ children }) => <ul className="list-disc">{children}</ul>;
   const OL = ({ children }) => (
@@ -41,8 +41,8 @@ const Activity = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <div className="mt-20 font-main flex flex-col items-center">
-        <h2 className="font-main text-6xl">{individualActivity.title}</h2>
+      <div className="mt-5 font-main flex flex-col items-center">
+        <h2 className="font-main text-4xl">{individualActivity.title}</h2>
         <GatsbyImage image={image} alt={"123"} className="my-5" />
         {renderRichText(individualActivity.content, options)}
       </div>
@@ -64,7 +64,7 @@ export const query = graphql`
             raw
           }
           featuredImage {
-            gatsbyImageData(width: 1000, height: 400)
+            gatsbyImageData(height: 500 width: 800)
           }
         }
       }
