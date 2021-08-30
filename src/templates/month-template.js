@@ -16,7 +16,7 @@ const IndividualMonthlyPage = ({ data, pageContext }) => {
   let previousSlug = `/plans/${previousPage}-${yearForSlug}-lesson-plan`
   let nextSlug = `/plans/${nextPage}-${yearForSlug}-lesson-plan`
   if (isFirst) {
-    previousSlug = `/plans/${previousPage}-${yearForSlug - 1}-lesson-plan`;
+    previousSlug = `/plans/${previousPage}-${+yearForSlug - 1}-lesson-plan`;
   }
   if (isLast) {
     nextSlug = `/plans/${nextPage}-${+yearForSlug + 1}-lesson-plan`;
@@ -28,11 +28,19 @@ const IndividualMonthlyPage = ({ data, pageContext }) => {
       <div className="font-main flex flex-col items-center p-0">
         <h2 className="font-main text-3xl">{lessonPlan.month} {lessonPlan.year} Lesson Plan</h2>
         <div className="flex gap-5 mt-4">
-        <Link to={previousSlug}>← Previous Month</Link>
-        <Link to={nextSlug}>Next Month →</Link>
+        {!isFirst && (
+          <Link to={previousSlug}>
+            ← Previous Page
+          </Link>
+        )}
+        {!isLast && (
+          <Link to={nextSlug}>
+            Next Page →
+          </Link>
+        )}
         </div>
-        <div className="h-3/4 w-full overflow-x-scroll p-0">
-        <table className="table-auto my-10 border border-black">
+        <div className="h-3/4 w-full overflow-x-scroll md:overflow-auto p-0">
+        <table className="table-auto my-10 border border-black mx-auto">
           <thead>
             <tr>
               <td className="text-center p-5 underline border border-black">Day of the Week</td>
@@ -114,7 +122,7 @@ const renderActivites = (week, lessonPlan, allActivities) => {
     const matchedActivity = allActivities.find(specificActivity => specificActivity.id === activity);
     const { month, slug, week, id, title } = matchedActivity;
     return (
-      <td className="text-center p-5 border border-black" key={id}><Link to={`/activity/${month}/${week}/${slug}`}>{title}</Link></td>
+      <td className="text-center p-5 border border-black" key={id}><Link className="underline text-black visited:text-purple-600" to={`/activity/${month}/${week}/${slug}`}>{title}</Link></td>
     )
     } 
     else {

@@ -14,12 +14,19 @@ const MonthlyPage = ({ data, pageContext }) => {
   return (
     <Layout>
       <div className="font-main flex flex-col items-center">
-        <h2 className="font-main text-4xl underline">Lesson Plans</h2>
-        <p className="font-writing text-center text-lg mt-4">
-          Lesson plans are a month of activities with a learning theme. Feel free to use these as you
-          want or need. Change the order. Do Februaries activities in June
-          whatever.
-        </p>
+        <h1 className="font-main text-4xl underline">Lesson Plans</h1>
+        <h2 className="font-writing text-center text-lg mt-4">
+          Lesson plans are a month of activities with a learning theme.
+        </h2>
+        <h2 className="font-writing text-center text-lg mt-4">
+          All plans have the ability to be modified or altered.
+        </h2>
+        <h2 className="font-writing text-center text-lg mt-4">
+          If you need help with a modification for a special situation (special needs, autism, etc)
+        </h2>
+        <h3 className="font-writing text-center text-lg mt-4">
+        Contact me leah@leahslittlelessons.com or join our facebook community!
+        </h3>
         {!isFirst && (
           <Link to={prevPage}>
             ← Previous Page

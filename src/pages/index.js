@@ -10,10 +10,13 @@ const IndexPage = () => {
     <>
       <Layout>
         <div className="flex flex-col items-center font-main my-5">
-          <h2 className="text-4xl text-center">Little Lessons for your Little Learners</h2>
-          <h4 className="text-xl text-center mt-4 font-writing">
-            Free Developmentally beneficial activities everyday
-          </h4>
+          <h1 className="text-4xl text-center">Little Lessons for your Little Learners</h1>
+          <h2 className="text-xl text-center mt-4 font-writing">
+            Free Developmentally beneficial activities everyday.
+          </h2>
+          <h2 className="text-xl text-center mt-4 font-writing">
+            Activities for children from 1 to 4 years old!
+          </h2>
         </div>
         <div className="flex flex-col lg:flex-row gap-20 justify-around text-5xl font-main my-20">
           <Link to={"/plans/2021"}>
