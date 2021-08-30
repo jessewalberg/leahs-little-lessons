@@ -2,10 +2,10 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    maxWidth: {
-      '9/10': '90%',
-     },
     extend: {
+      maxWidth: {
+        '9/10': '90%',
+       },
       fontFamily: {
         main: ["SchoolBell", "Helvetica, Arial"],
         writing: ["Helvetica", "Arial"],
@@ -16,7 +16,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      textColor: ['visited'],
+    },
   },
   plugins: [],
 };
