@@ -5,8 +5,8 @@ import { StaticImage } from 'gatsby-plugin-image';
 const About = () => {
   return (
     <Layout>
-      <div className="text-center">
-      <StaticImage 
+      <div className="text-center max-w-3/4 mx-auto">
+      <StaticImage
         src="../../images/about-pic.jpeg"
         placeholder="blurred"
         width={325}

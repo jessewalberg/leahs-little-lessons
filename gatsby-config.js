@@ -1,7 +1,6 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-const targetAddress = new URL(process.env.TARGET_ADDRESS || `http://leahslittlelessons.com`);
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.leahslittlelessons.com",

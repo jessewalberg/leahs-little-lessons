@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       maxWidth: {
         '9/10': '90%',
+        '3/4': '75%'
        },
       fontFamily: {
         main: ["SchoolBell", "Helvetica, Arial"],
