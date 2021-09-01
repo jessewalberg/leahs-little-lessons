@@ -1,5 +1,6 @@
 import React from "react";
 import map from "../images/map.svg";
+import me from "../images/me.svg"
 import light from "../images/light.svg";
 import paper from "../images/paper.svg";
 import Layout from "./components/Layout";
@@ -31,10 +32,10 @@ const IndexPage = () => {
               <h4>Activities</h4>
             </div>
           </Link>
-          <Link to={'/blog'}>
+          <Link to={'/about'}>
           <div className="flex flex-col items-center space-y-6">
-            <img src={paper} />
-            <h4>Articles/Posts</h4>
+            <img src={me} />
+            <h4>About</h4>
           </div>
           </Link>
         </div>

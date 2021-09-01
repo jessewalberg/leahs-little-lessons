@@ -1,8 +1,8 @@
-import * as React from "react";
+import React from "react";
 import Layout from "../components/Layout";
-import test1 from "../../images/test-article.jpg";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+const slugify = require('slugify');
 
 const mostRecentActivitiesQuery = graphql`
   query recentActivitiesQuery {
@@ -13,7 +13,6 @@ const mostRecentActivitiesQuery = graphql`
           week
           title
           tags
-          slug
           id
           featuredImage {
             gatsbyImageData(height: 500 width: 800)
@@ -27,7 +26,6 @@ const mostRecentActivitiesQuery = graphql`
 const ActivitiesPage = () => {
   const mostRecentActivities = useStaticQuery(mostRecentActivitiesQuery)
     .allContentfulActivity.edges;
-  console.log(mostRecentActivities, "08888888888888888888888888888");
   return (
     <Layout>
       <div className="mt-5 font-main flex flex-col items-center">
@@ -40,7 +38,8 @@ const ActivitiesPage = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {mostRecentActivities.map((node) => {
-        const { month, week, title, slug, id } = node.node;
+        const { month, week, title, id } = node.node;
+        const slug = slugify(title);
         const image = getImage(node.node.featuredImage.gatsbyImageData);
         return (
           

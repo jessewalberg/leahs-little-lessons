@@ -9,7 +9,6 @@ const SEO = ({ description, lang, meta, image: metaImage, title, pathname }) => 
 
   const image = metaImage && metaImage.src
     ? `https:${metaImage.src}` : null;
-    console.log(image)
   const canonical = pathname ? `${site.siteMetadata.siteUrl}/${pathname}` : null;
   return (
     <Helmet

@@ -5,10 +5,11 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import SEO from "../pages/components/SEO";
+const slugify = require('slugify');
 
 const Activity = ({ data, pageContext }) => {
   const individualActivity = data.allContentfulActivity.edges[0].node;
-  console.log(individualActivity)
+  const slug = slugify(individualActivity.title.toLowerCase());
   const Bold = ({ children }) => (
     <span className=" font-writing font-bold">{children}</span>
   );
@@ -50,7 +51,7 @@ const Activity = ({ data, pageContext }) => {
         title={individualActivity.title}
         image={individualActivity.featuredImage.fluid}
         description={'test'}
-        pathname={`${individualActivity.month}/${individualActivity.week}/${individualActivity.slug}`}
+        pathname={`${individualActivity.month}/${individualActivity.week}/${slug}`}
       />
       <div className="mt-5 font-main flex flex-col items-center max-w-xl mx-auto">
         <h1 className="font-main text-4xl">{individualActivity.title}</h1>
@@ -70,7 +71,6 @@ export const query = graphql`
           week
           title
           tags
-          slug
           content {
             raw
           }

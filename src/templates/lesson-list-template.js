@@ -40,7 +40,6 @@ const MonthlyPage = ({ data, pageContext }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
         {months.map((month) => {
-          console.log(month)
           const image = getImage(month.node.featuredImage.gatsbyImageData);
           const slug = month.node.slug;
           return (
