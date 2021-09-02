@@ -18,6 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
               week4
             }
           }
+          slug
           month
           theme
           year
