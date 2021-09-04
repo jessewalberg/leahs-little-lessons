@@ -10,6 +10,7 @@ module.exports = {
     description: "Leahs little lessons is my space for documenting my experience teaching and raising my child. I add all my activites that are developed based on my years as a preschool teacher."
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
