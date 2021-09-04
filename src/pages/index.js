@@ -1,21 +1,21 @@
 import React from "react";
 import map from "../images/map.svg";
-import me from "../images/me.svg"
+import me from "../images/me.svg";
 import light from "../images/light.svg";
 import paper from "../images/paper.svg";
 import Layout from "./components/Layout";
 import { Link } from "gatsby";
-import SEO from "./components/SEO"
+import SEO from "./components/SEO";
 
 const IndexPage = () => {
   return (
     <>
-    <SEO 
-        pathname='/'
-    />
+      <SEO title={"home"} pathname="/" />
       <Layout>
         <div className="flex flex-col items-center font-main my-5">
-          <h1 className="text-4xl text-center">Little Lessons for your Little Learners</h1>
+          <h1 className="text-4xl text-center">
+            Little Lessons for your Little Learners
+          </h1>
           <h2 className="text-xl text-center mt-4 font-writing">
             Free Developmentally beneficial activities everyday.
           </h2>
@@ -36,11 +36,11 @@ const IndexPage = () => {
               <h4>Activities</h4>
             </div>
           </Link>
-          <Link to={'/about'}>
-          <div className="flex flex-col items-center space-y-6">
-            <img src={me} />
-            <h4>About</h4>
-          </div>
+          <Link to={"/about"}>
+            <div className="flex flex-col items-center space-y-6">
+              <img src={me} />
+              <h4>About</h4>
+            </div>
           </Link>
         </div>
       </Layout>
