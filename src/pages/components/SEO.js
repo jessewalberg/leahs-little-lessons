@@ -29,6 +29,10 @@ const SEO = ({ description, lang, meta, image: metaImage, title, pathname }) => 
       }
       meta={[
         {
+          name: 'msvalidate.01',
+          content: '9409432C3AE26A243D38D065FB249100'
+        },
+        {
           name: 'description',
           content: metaDescription,
         },
