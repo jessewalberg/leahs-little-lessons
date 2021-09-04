@@ -1,4 +1,5 @@
 const path = require("path");
+const slugify = require('slugify');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -64,7 +65,6 @@ exports.createPages = async ({ graphql, actions }) => {
         week
         title
         tags
-        slug
         content {
           raw
         }
@@ -77,7 +77,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const activities = activityQuery.data.allContentfulActivity.edges
 
   activities.forEach(activity => {
-    const {slug, month, week, id } = activity.node;
+    
+    const { title, month, week, id } = activity.node;
+    const slug = slugify(title.toLowerCase());
+
     createPage({
       path: `activity/${month}/${week}/${slug}`,
       component: path.resolve('src/templates/activity-template.js'),

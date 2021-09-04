@@ -1,11 +1,12 @@
 module.exports = {
-  purge: [],
+  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    maxWidth: {
-      '9/10': '90%',
-     },
     extend: {
+      maxWidth: {
+        '9/10': '90%',
+        '3/4': '75%'
+       },
       fontFamily: {
         main: ["SchoolBell", "Helvetica, Arial"],
         writing: ["Helvetica", "Arial"],
@@ -16,7 +17,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      textColor: ['visited'],
+    },
   },
   plugins: [],
 };

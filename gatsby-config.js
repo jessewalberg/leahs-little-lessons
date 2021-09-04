@@ -1,13 +1,16 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-const targetAddress = new URL(process.env.TARGET_ADDRESS || `http://leahslittlelessons.com`);
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "leahs-little-lessons",
+    siteUrl: "https://www.leahslittlelessons.com",
+    title: "Leahs Little Lessons",
+    keywords: ["children", "teacher", "parents", "activities", "toddler", "stay at home mom"],
+    author: "Leah Walberg",
+    description: "Leahs little lessons is my space for documenting my experience teaching and raising my child. I add all my activites that are developed based on my years as a preschool teacher."
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -20,24 +23,19 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-s3`,
-      options: {
-          bucketName: process.env.TARGET_BUCKET_NAME || "fake-bucket",
-          region: process.env.AWS_REGION,
-          protocol: targetAddress.protocol.slice(0, -1),
-          hostname: targetAddress.hostname,
-          acl: null,
-          params: {
-              // In case you want to add any custom content types: https://github.com/jariz/gatsby-plugin-s3/blob/master/recipes/custom-content-type.md
-          },
-      },
-  },
+    `gatsby-plugin-react-helmet`,
   {
     resolve: `gatsby-plugin-canonical-urls`,
     options: {
-        siteUrl: targetAddress.href.slice(0, -1),
+        siteUrl: 'https://leahslittlelessons.com',
     },
-}
+},
+{
+  resolve: `gatsby-plugin-manifest`,
+  options: {
+    start_url: `/`,
+    icon: `src/images/favicon.png`
+  },
+},
   ],
 };
