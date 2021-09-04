@@ -5,10 +5,14 @@ import light from "../images/light.svg";
 import paper from "../images/paper.svg";
 import Layout from "./components/Layout";
 import { Link } from "gatsby";
+import SEO from "./components/SEO"
 
 const IndexPage = () => {
   return (
     <>
+    <SEO 
+        pathname='/'
+    />
       <Layout>
         <div className="flex flex-col items-center font-main my-5">
           <h1 className="text-4xl text-center">Little Lessons for your Little Learners</h1>
