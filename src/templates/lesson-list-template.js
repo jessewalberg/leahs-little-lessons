@@ -44,7 +44,7 @@ const MonthlyPage = ({ data, pageContext }) => {
           const slug = month.node.slug;
           return (
             <div className="shadow-testing">
-              <GatsbyImage image={image} alt={"123"} />
+              <GatsbyImage className="object-contain" image={image} alt={"123"} />
               <Link to={`/plans/${slug}`}>
                 <div className="flex flex-col items-center p-5 space-y-4">
                   <h3 className="font-main text-3xl">

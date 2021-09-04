@@ -7,13 +7,12 @@ const IndividualMonthlyPage = ({ data, pageContext }) => {
   const lessonPlan = data.allContentfulLessonPlan.nodes[0];
   const allActivities = data.allContentfulActivity.nodes;
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
   const currentMonth = months.indexOf(pageContext.month);
   const yearForSlug = pageContext.year;
   const previousPage = months[currentMonth - 1] ? months[currentMonth - 1].toLowerCase() : months[11].toLowerCase();
   const nextPage = months[currentMonth + 1] ? months[currentMonth + 1].toLowerCase() : months[0].toLowerCase();
   const isFirst = currentMonth === 0;
-  const isLast = currentMonth === months.length - 1;
+  const isLast = currentMonth === data.allContentfulLessonPlan.nodes.length - 1;
   let previousSlug = `/plans/${previousPage}-${yearForSlug}-lesson-plan`
   let nextSlug = `/plans/${nextPage}-${yearForSlug}-lesson-plan`
   if (isFirst) {
@@ -27,7 +26,7 @@ const IndividualMonthlyPage = ({ data, pageContext }) => {
   return (
     <Layout>
       <div className="font-main flex flex-col items-center p-0">
-        <h2 className="font-main text-3xl">{lessonPlan.month} {lessonPlan.year} Lesson Plan</h2>
+        <h2 className="font-main text-3xl">{lessonPlan.theme}</h2>
         <div className="flex gap-5 mt-4">
         {!isFirst && (
           <Link to={previousSlug}>
