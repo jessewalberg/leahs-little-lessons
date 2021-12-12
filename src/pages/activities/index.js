@@ -39,7 +39,7 @@ const ActivitiesPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {mostRecentActivities.map((node) => {
         const { month, week, title, id } = node.node;
-        const slug = slugify(title);
+        const slug = slugify(title.toLowerCase());
         const image = getImage(node.node.featuredImage.gatsbyImageData);
         return (
           

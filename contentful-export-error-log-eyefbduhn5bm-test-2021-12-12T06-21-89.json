@@ -1,0 +1,39 @@
+[
+  {
+    "ts": "2021-12-12T11:21:07.206Z",
+    "level": "error",
+    "error": {
+      "originalError": {
+        "name": "InvalidQuery",
+        "message": "{\n  \"status\": 400,\n  \"statusText\": \"Bad Request\",\n  \"message\": \"The query you sent was invalid. Probably a filter or ordering specification is not applicable to the type of a field.\",\n  \"details\": {\n    \"errors\": [\n      {\n        \"name\": \"unknownContentType\",\n        \"value\": \"DOESNOTEXIST\"\n      }\n    ]\n  },\n  \"request\": {\n    \"url\": \"/spaces/eyefbduhn5bm/environments/test/entries\",\n    \"headers\": {\n      \"Accept\": \"application/json, text/plain, */*\",\n      \"Content-Type\": \"application/vnd.contentful.management.v1+json\",\n      \"X-Contentful-User-Agent\": \"app contentful.cli/1.9.38; feature space-export; sdk contentful-management.js/7.45.7; platform node.js/v15.5.1; os macOS/20.6.0;\",\n      \"CF-Sequence\": \"bc8a2b97-fa02-4e30-ad14-e9d23823daf2\",\n      \"Authorization\": \"Bearer ...8TnTA\",\n      \"user-agent\": \"node.js/v15.5.1\",\n      \"Accept-Encoding\": \"gzip\"\n    },\n    \"method\": \"get\"\n  },\n  \"requestId\": \"2c52ea86-b813-4d62-980f-cf017c7e9e74\"\n}"
+      },
+      "data": {
+        "status": 400,
+        "statusText": "Bad Request",
+        "message": "The query you sent was invalid. Probably a filter or ordering specification is not applicable to the type of a field.",
+        "details": {
+          "errors": [
+            {
+              "name": "unknownContentType",
+              "value": "DOESNOTEXIST"
+            }
+          ]
+        },
+        "request": {
+          "url": "/spaces/eyefbduhn5bm/environments/test/entries",
+          "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/vnd.contentful.management.v1+json",
+            "X-Contentful-User-Agent": "app contentful.cli/1.9.38; feature space-export; sdk contentful-management.js/7.45.7; platform node.js/v15.5.1; os macOS/20.6.0;",
+            "CF-Sequence": "bc8a2b97-fa02-4e30-ad14-e9d23823daf2",
+            "Authorization": "Bearer ...8TnTA",
+            "user-agent": "node.js/v15.5.1",
+            "Accept-Encoding": "gzip"
+          },
+          "method": "get"
+        },
+        "requestId": "2c52ea86-b813-4d62-980f-cf017c7e9e74"
+      }
+    }
+  }
+]

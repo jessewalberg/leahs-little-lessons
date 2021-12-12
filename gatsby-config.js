@@ -1,6 +1,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
+console.log(process.env)
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.leahslittlelessons.com",
@@ -36,6 +37,7 @@ module.exports = {
       options: {
         spaceId: process.env.spaceId,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: process.env.CONTENTFUL_ACCESS_URL
       },
     },
     `gatsby-plugin-postcss`,
