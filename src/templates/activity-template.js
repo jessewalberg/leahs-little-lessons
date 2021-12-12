@@ -9,7 +9,6 @@ const slugify = require('slugify');
 
 const Activity = ({ data, pageContext }) => {
   const individualActivity = data.allContentfulActivity.edges[0].node;
-  console.log(individualActivity.title)
   const slug = slugify(individualActivity.title.toLowerCase());
   const Bold = ({ children }) => (
     <span className=" font-writing font-bold">{children}</span>
