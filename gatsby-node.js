@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
     query LessonPlansQuery {
       allContentfulLessonPlan {
         nodes {
+        id
           activities {
             id
             activities {
@@ -51,7 +52,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/month-template.js`),
       context: {
         month: month.month,
-        year: month.year  
+        year: month.year,
+        id: month.id
       }
     })
   })
