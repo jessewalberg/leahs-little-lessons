@@ -36,7 +36,6 @@ module.exports = {
       options: {
         spaceId: process.env.spaceId,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: process.env.CONTENTFUL_ACCESS_URL
       },
     },
     `gatsby-plugin-postcss`,
@@ -47,7 +46,7 @@ module.exports = {
   {
     resolve: `gatsby-plugin-canonical-urls`,
     options: {
-        siteUrl: 'https://leahslittlelessons.com',
+        siteUrl: 'leahslittlelessons.com',
     },
 },
 {
