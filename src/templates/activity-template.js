@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import SEO from "../pages/components/SEO";
-const slugify = require('slugify');
+const slugify = require("slugify");
 
 const Activity = ({ data, pageContext }) => {
   const individualActivity = data.allContentfulActivity.edges[0].node;
@@ -41,21 +41,32 @@ const Activity = ({ data, pageContext }) => {
       },
       [BLOCKS.HEADING_2]: (individualActivity, children) => <H2>{children}</H2>,
       [BLOCKS.HEADING_3]: (individualActivity, children) => <H3>{children}</H3>,
-      [BLOCKS.UL_LIST]: (individualActivity, children) => (<div className="content-wrapper max-w-prose"><UL>{children}</UL></div>),
-      [BLOCKS.OL_LIST]: (individualActivity, children) => (<div className="content-wrapper max-w-prose"><OL>{children}</OL></div>),
+      [BLOCKS.UL_LIST]: (individualActivity, children) => (
+        <div className="content-wrapper max-w-prose">
+          <UL>{children}</UL>
+        </div>
+      ),
+      [BLOCKS.OL_LIST]: (individualActivity, children) => (
+        <div className="content-wrapper max-w-prose">
+          <OL>{children}</OL>
+        </div>
+      ),
     },
   };
   return (
     <Layout>
-      <SEO 
+      <SEO
         title={individualActivity.title}
         image={individualActivity.featuredImage.fluid}
-        description={'test'}
         pathname={`${individualActivity.month}/${individualActivity.week}/${slug}`}
       />
       <div className="mt-5 font-main flex flex-col items-center max-w-xl mx-auto">
         <h1 className="font-main text-4xl">{individualActivity.title}</h1>
-        <GatsbyImage image={image} alt={"123"} className="my-5" />
+        <GatsbyImage
+          image={image}
+          alt={individualActivity.title}
+          className="my-5"
+        />
         {renderRichText(individualActivity.content, options)}
       </div>
     </Layout>
@@ -75,10 +86,7 @@ export const query = graphql`
             raw
           }
           featuredImage {
-            gatsbyImageData(height: 500 width: 800)
-            fluid {
-              src
-            }
+            gatsbyImageData(height: 500, width: 800)
           }
         }
       }

@@ -4,13 +4,13 @@ import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const MonthlyPage = ({ data, pageContext }) => {
-
   const months = data.allContentfulLessonPlan.edges;
   const { currentPage, numPages } = pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const prevPage = currentPage - 1 === 1 ? "/plans/2021" : `/plans/${currentPage + 2019}`;
-  const nextPage = `/plans/${(currentPage + 2021)}`;
+  const prevPage =
+    currentPage - 1 === 1 ? "/plans/2021" : `/plans/${currentPage + 2019}`;
+  const nextPage = `/plans/${currentPage + 2021}`;
   return (
     <Layout>
       <div className="font-main flex flex-col items-center">
@@ -22,21 +22,14 @@ const MonthlyPage = ({ data, pageContext }) => {
           All plans have the ability to be modified or altered.
         </h2>
         <h2 className="font-writing text-center text-lg mt-4">
-          If you need help with a modification for a special situation (special needs, autism, etc)
+          If you need help with a modification for a special situation (special
+          needs, autism, etc)
         </h2>
         <h3 className="font-writing text-center text-lg mt-4">
-        Contact me leah@leahslittlelessons.com or join our facebook community!
+          Contact me leah@leahslittlelessons.com or join our facebook community!
         </h3>
-        {!isFirst && (
-          <Link to={prevPage}>
-            ← Previous Page
-          </Link>
-        )}
-        {!isLast && (
-          <Link to={nextPage}>
-            Next Page →
-          </Link>
-        )}
+        {!isFirst && <Link to={prevPage}>← Previous Page</Link>}
+        {!isLast && <Link to={nextPage}>Next Page →</Link>}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
         {months.map((month) => {
@@ -44,7 +37,11 @@ const MonthlyPage = ({ data, pageContext }) => {
           const slug = month.node.slug;
           return (
             <div className="shadow-testing">
-              <GatsbyImage className="object-contain" image={image} alt={"123"} />
+              <GatsbyImage
+                className="object-contain"
+                image={image}
+                alt={`${month} section image for child activity`}
+              />
               <Link to={`/plans/${slug}`}>
                 <div className="flex flex-col items-center p-5 space-y-4">
                   <h3 className="font-main text-3xl">
@@ -70,7 +67,7 @@ export const query = graphql`
         node {
           slug
           featuredImage {
-            gatsbyImageData(height: 500 width: 800)
+            gatsbyImageData(height: 500, width: 800)
           }
           metadata {
             month
