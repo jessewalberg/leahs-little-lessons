@@ -3,7 +3,7 @@ require("dotenv").config({
 });
 module.exports = {
   siteMetadata: {
-    siteUrl: "leahslittlelessons.com",
+    siteUrl: "https://leahslittlelessons.com",
     title: "Leahs Little Lessons",
     keywords: [
       "children",
