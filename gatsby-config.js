@@ -54,7 +54,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: "leahslittlelessons.com",
+        siteUrl: "https://leahslittlelessons.com",
       },
     },
     {
